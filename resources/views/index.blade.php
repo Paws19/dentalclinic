@@ -123,6 +123,23 @@
             }
         }
 
+        /* ---- Scroll-reveal for treatment cards ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        .reveal.in-view {
+            animation: revealUp 0.7s var(--ease) forwards;
+        }
+
+        @keyframes revealUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* HEADER */
         header {
             position: fixed;
@@ -158,7 +175,7 @@
             width: 38px;
             height: 38px;
             border-radius: 50%;
-            background: linear-gradient(145deg, var(--gold) 0%, var(--gold-deep) 100%);
+            background: linear-gradient(160deg, #1a1f2e 0%, #1a1f2e 50%, #1a1f2e 100%);
             display: grid;
             place-items: center;
             color: #1a1f2e;
@@ -428,6 +445,12 @@
             box-shadow: var(--shadow-md);
         }
 
+        .btn-main[disabled] {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .btn-outline {
             display: inline-flex;
             align-items: center;
@@ -492,7 +515,7 @@
             width: 140px;
             height: 140px;
             margin: 0 auto 28px;
-            background: linear-gradient(160deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-deep) 100%);
+            background: linear-gradient(160deg, #1a1f2e 0%, #1a1f2e 50%, #1a1f2e 100%);
             border-radius: 50%;
             display: grid;
             place-items: center;
@@ -726,6 +749,217 @@
             }
         }
 
+        /* MEET THE DENTIST */
+        .meet {
+            padding: 0 0 120px;
+        }
+
+        .meet-panel {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 56px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: 56px;
+            box-shadow: var(--shadow-md);
+            align-items: center;
+        }
+
+        .meet-photo-wrap {
+            position: relative;
+        }
+
+        .meet-photo {
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 22px;
+            background: linear-gradient(160deg, var(--cream-2) 0%, var(--gold-light) 120%);
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--line);
+        }
+
+        .meet-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .meet-photo .meet-initials {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-style: italic;
+            color: var(--gold-deep);
+        }
+
+        .meet-photo-caption {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .meet-body h3 {
+            font-size: clamp(1.7rem, 3vw, 2.2rem);
+            margin-bottom: 4px;
+        }
+
+        .meet-role {
+            font-size: 0.85rem;
+            color: var(--gold-deep);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .meet-bio {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.75;
+            max-width: 52ch;
+            margin-bottom: 26px;
+        }
+
+        .cred-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .cred-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--bg);
+        }
+
+        .cred-item .cred-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: color-mix(in srgb, var(--gold) 15%, transparent);
+            color: var(--gold-deep);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        .cred-item .cred-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .cred-item .cred-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .cred-item .cred-value {
+            font-size: 0.88rem;
+            color: var(--text);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .milestones {
+            margin-top: 30px;
+            padding-top: 26px;
+            border-top: 1px solid var(--line);
+        }
+
+        .milestones-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--gold-deep);
+            margin-bottom: 18px;
+        }
+
+        .milestone-row {
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 16px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .milestone-row::before {
+            content: '';
+            position: absolute;
+            left: 27px;
+            top: 22px;
+            bottom: -2px;
+            width: 1px;
+            background: var(--line);
+        }
+
+        .milestone-row:last-child::before {
+            display: none;
+        }
+
+        .milestone-row::after {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 2px solid var(--surface);
+        }
+
+        .milestone-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--gold-deep);
+            padding-top: 1px;
+        }
+
+        .milestone-title {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .milestone-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        @media (max-width: 860px) {
+            .meet-panel {
+                grid-template-columns: 1fr;
+                padding: 36px 28px;
+            }
+
+            .meet-photo {
+                max-width: 260px;
+                margin: 0 auto;
+            }
+
+            .cred-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* SERVICES */
         .services {
             padding: 0 0 120px;
@@ -775,14 +1009,14 @@
             border: 1px solid var(--line);
             border-radius: var(--radius);
             overflow: hidden;
-            transition: all 0.4s var(--ease);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
             position: relative;
             display: flex;
             flex-direction: column;
         }
 
         .svc-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px) scale(1.015);
             box-shadow: var(--shadow-lg);
             border-color: color-mix(in srgb, var(--gold) 30%, var(--line));
         }
@@ -817,7 +1051,7 @@
         }
 
         .svc-card:hover .svc-img {
-            transform: scale(1.08);
+            transform: scale(1.1);
             filter: brightness(1.06) contrast(1.03);
         }
 
@@ -834,7 +1068,7 @@
             height: 100%;
             background: linear-gradient(90deg,
                     transparent 0%,
-                    rgba(255, 255, 255, 0.18) 50%,
+                    rgba(255, 255, 255, 0.22) 50%,
                     transparent 100%);
             transform: skewX(-18deg);
             transition: left 0.7s var(--ease);
@@ -860,11 +1094,12 @@
             font-style: italic;
             margin-bottom: 12px;
             display: block;
-            transition: color 0.3s var(--ease);
+            transition: color 0.3s var(--ease), transform 0.3s var(--ease);
         }
 
         .svc-card:hover .svc-num {
             color: var(--gold-deep);
+            transform: translateX(3px);
         }
 
         .svc-card h3 {
@@ -1049,28 +1284,18 @@
         }
 
         .visit-visual {
-            background: linear-gradient(160deg, #1a1f2e 0%, #2a3142 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             min-height: 320px;
             position: relative;
+            background: var(--cream-2);
         }
 
-        .visit-visual::before {
-            content: '';
+        .visit-visual iframe {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 60% 40%, rgba(196, 165, 116, 0.15) 0%, transparent 60%);
-        }
-
-        .visit-visual svg {
-            width: 100px;
-            height: 100px;
-            color: var(--gold);
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
         }
 
         @media (max-width: 800px) {
@@ -1184,6 +1409,13 @@
             font-weight: 300;
         }
 
+        .field-error {
+            font-size: 0.78rem;
+            color: #b3523f;
+            min-height: 16px;
+            margin-top: -2px;
+        }
+
         .form-actions {
             margin-top: 28px;
             display: flex;
@@ -1215,6 +1447,16 @@
         .form-success p {
             color: var(--text-muted);
             font-weight: 300;
+        }
+
+        .form-success.error h3 {
+            color: #b3523f;
+        }
+
+        .form-success .retry-btn {
+            display: inline-flex;
+            margin-top: 18px;
+            cursor: pointer;
         }
 
         /* FOOTER */
@@ -1313,6 +1555,7 @@
             <nav class="links" id="navLinks">
                 <a href="#announcements">Announcements</a>
                 <a href="#about">About</a>
+                <a href="#meet">Meet the Dentist</a>
                 <a href="#services">Treatments</a>
                 <a href="#voices">Stories</a>
                 <a href="#visit">Visit</a>
@@ -1351,7 +1594,7 @@
                     </div>
                     <div class="hero-stats">
                         <div>
-                            <span class="stat-num">996+</span>
+                            <span class="stat-num">5</span>
                             <span class="stat-label">Patients cared for</span>
                         </div>
                         <div>
@@ -1359,8 +1602,8 @@
                             <span class="stat-label">Brgy. Biluso</span>
                         </div>
                         <div>
-                            <span class="stat-num">Walk-ins</span>
-                            <span class="stat-label">Always welcome</span>
+                            <span class="stat-num">By Appointment</span>
+                            <span class="stat-label">No walk-ins — questions always welcome</span>
                         </div>
                     </div>
                 </div>
@@ -1415,7 +1658,8 @@
                         </div>
                         <h3>Extended Saturday hours this month</h3>
                         <p>We’re opening until 7:00 PM on Saturdays throughout September to accommodate more families.
-                            Walk-ins are still welcome — just come early for the best availability.</p>
+                            Please book your slot ahead of time — we’re not able to accommodate walk-ins, but we’re
+                            always happy to answer any questions you have beforehand.</p>
                         <div class="announce-author">
                             <div class="avatar">PV</div>
                             <div><strong>Dr. Phili Velasco</strong> · Clinic Director</div>
@@ -1484,6 +1728,123 @@
             </div>
         </section>
 
+        <!-- MEET THE DENTIST -->
+        <section class="meet" id="meet">
+            <div class="wrap">
+                <div class="meet-panel">
+                    <div class="meet-photo-wrap">
+                        <div class="meet-photo">
+                            {{-- EXAMPLE PHOTO — a stock placeholder, not Dr. Velasco. Replace src with:
+                                 {{ asset('img/dr-velasco.jpg') }} once you have his real photo. --}}
+                            <img src="https://images.unsplash.com/photo-1758691463384-771db2f192b3?w=500&h=625&fit=crop&q=80"
+                                alt="Placeholder photo — replace with Dr. Velasco's actual photo">
+                        </div>
+                        <p class="meet-photo-caption">Example photo</p>
+                    </div>
+                    <div class="meet-body">
+                        <span class="meet-role">Clinic Director</span>
+                        <h3>Dr. Phili Velasco, DMD</h3>
+                        <p class="meet-bio">With years of practice serving the Silang community, Dr. Velasco combines
+                            careful, conservative diagnosis with an eye for aesthetics — treating every patient as a
+                            person first, not just a set of teeth.</p>
+                        <div class="cred-list">
+                            <div class="cred-item">
+                                <div class="cred-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.6">
+                                        <path d="M22 10L12 5 2 10l10 5 10-5z" />
+                                        <path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="cred-label">Degree</div>
+                                    <div class="cred-value">Doctor of Dental Medicine (DMD)</div>
+                                </div>
+                            </div>
+                            <div class="cred-item">
+                                <div class="cred-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.6">
+                                        <path d="M12 15a4 4 0 100-8 4 4 0 000 8z" />
+                                        <path d="M8.5 13.5L6 21l6-3 6 3-2.5-7.5" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="cred-label">License</div>
+                                    <div class="cred-value">PRC-Licensed Dentist</div>
+                                </div>
+                            </div>
+                            <div class="cred-item">
+                                <div class="cred-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.6">
+                                        <circle cx="12" cy="8" r="5" />
+                                        <path d="M8 13l-2 8 6-3 6 3-2-8" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="cred-label">Membership</div>
+                                    <div class="cred-value">Philippine Dental Association</div>
+                                </div>
+                            </div>
+                            <div class="cred-item">
+                                <div class="cred-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.6">
+                                        <path d="M12 2l1.8 5.6H20l-4.6 3.4L17 17l-5-3.6L7 17l1.6-6-4.6-3.4h6.2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="cred-label">Focus</div>
+                                    <div class="cred-value">Cosmetic & Restorative Dentistry</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- EXAMPLE MILESTONES — placeholder years/events. Replace with his real timeline. --}}
+                        <div class="milestones">
+                            <span class="milestones-label">Milestones (example — replace with real dates)</span>
+                            <div class="milestone-row">
+                                <span class="milestone-year">2010</span>
+                                <div>
+                                    <div class="milestone-title">Graduated Doctor of Dental Medicine</div>
+                                    <div class="milestone-desc">Example: name of dental school here</div>
+                                </div>
+                            </div>
+                            <div class="milestone-row">
+                                <span class="milestone-year">2011</span>
+                                <div>
+                                    <div class="milestone-title">Passed the PRC Dental Licensure Exam</div>
+                                    <div class="milestone-desc">Example: board rank or notable score, if any</div>
+                                </div>
+                            </div>
+                            <div class="milestone-row">
+                                <span class="milestone-year">2015</span>
+                                <div>
+                                    <div class="milestone-title">Certified in Cosmetic & Restorative Dentistry</div>
+                                    <div class="milestone-desc">Example: certifying body / training program</div>
+                                </div>
+                            </div>
+                            <div class="milestone-row">
+                                <span class="milestone-year">2019</span>
+                                <div>
+                                    <div class="milestone-title">Founded Crown Aesthetic Dental Clinic</div>
+                                    <div class="milestone-desc">Example: opened the Biluso, Silang location</div>
+                                </div>
+                            </div>
+                            <div class="milestone-row">
+                                <span class="milestone-year">2026</span>
+                                <div>
+                                    <div class="milestone-title">996+ patients served</div>
+                                    <div class="milestone-desc">Example: award, recognition, or patient milestone</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="services" id="services">
             <div class="wrap">
                 <div class="section-head">
@@ -1494,7 +1855,7 @@
                 </div>
 
                 <div class="services-grid">
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop&q=80"
@@ -1508,7 +1869,7 @@
                         </div>
                     </article>
 
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop&q=80"
@@ -1522,7 +1883,7 @@
                         </div>
                     </article>
 
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop&q=80"
@@ -1536,7 +1897,7 @@
                         </div>
                     </article>
 
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&h=400&fit=crop&q=80"
@@ -1551,7 +1912,7 @@
                         </div>
                     </article>
 
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&h=400&fit=crop&q=80"
@@ -1565,7 +1926,7 @@
                         </div>
                     </article>
 
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop&q=80"
@@ -1579,7 +1940,7 @@
                         </div>
                     </article>
 
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=600&h=400&fit=crop&q=80"
@@ -1594,7 +1955,7 @@
                         </div>
                     </article>
 
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=600&h=400&fit=crop&q=80"
@@ -1609,7 +1970,7 @@
                         </div>
                     </article>
 
-                    <article class="svc-card">
+                    <article class="svc-card reveal">
                         <div class="svc-img-wrap">
                             <img class="svc-img"
                                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop&q=80"
@@ -1702,22 +2063,26 @@
                             </div>
                             <div>
                                 <div class="label">Contact</div>
-                                <div class="value"><a href="tel:+639170000000">(0917) 000 0000</a> · <a
+                                <div class="value"><a href="tel:+639170000000">(0000) 000 0000</a> · <a
                                         href="https://www.facebook.com/CrownAestheticDental/" target="_blank"
                                         rel="noopener">Facebook</a></div>
                             </div>
                         </div>
 
                         <div class="visit-actions">
-                            <a href="https://www.google.com/maps/search/?api=1&query=268+Ambid+Street+Purok+5+Brgy.+Biluso+Silang+Cavite"
+                            <a href="https://www.google.com/maps/search/?api=1&query=14.247212,120.955098"
                                 target="_blank" rel="noopener" class="btn-main">Get directions</a>
                             <a href="tel:+639170000000" class="btn-outline">Call us</a>
                         </div>
+                        <p class="form-note" style="margin-top:16px;">We see patients by appointment only and aren’t
+                            able to accommodate walk-ins — but questions are always welcome, so feel free to call or
+                            message us before booking.</p>
                     </div>
                     <div class="visit-visual">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <path d="M12 2L4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z" />
-                        </svg>
+                        <iframe
+                            title="Map to Crown Aesthetic Dental Clinic, 268 Ambid Street, Purok 5, Brgy. Biluso, Silang, Cavite"
+                            src="https://www.google.com/maps?q=14.247212,120.955098&output=embed" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -1733,38 +2098,47 @@
                         <p>Fill out the form and we’ll get back to you shortly. Free · no account needed.</p>
                     </div>
 
-                    <!--
-                        FREE EMAIL FORM (FormSubmit.co)
-                        1. Replace YOUR-EMAIL@example.com with the real clinic email
-                        2. First time you submit, FormSubmit sends an activation email — click the link
-                        3. After that, every form submission goes to that email
-                    -->
-                    <form id="bookingForm" action="https://formsubmit.co/pagawpawjemoyacerenado@gmail.com"
-                        method="POST">
-                        <input type="hidden" name="_subject" value="New Appointment Request — Crown Aesthetic">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="text" name="_honey" style="display:none">
+
+                    <form id="bookingForm" data-endpoint="https://formsubmit.co/ajax/pagawpawjemoyacerenado@gmail.com"
+                        novalidate>
+                        <input type="text" name="_honey" id="honeyField" style="display:none" tabindex="-1"
+                            autocomplete="off">
 
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="name">Full name</label>
                                 <input type="text" id="name" name="name" placeholder="Juan Dela Cruz"
                                     required>
+                                <span class="field-error" data-error-for="name"></span>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone / WhatsApp</label>
                                 <input type="tel" id="phone" name="phone" placeholder="0917 000 0000"
                                     required>
+                                <span class="field-error" data-error-for="phone"></span>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" name="email" placeholder="you@email.com">
+                                <span class="field-error" data-error-for="email"></span>
+                            </div>
+                            <!--- date picker --->
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" name="date" required>
+                                <span class="field-error" data-error-for="date"></span>
+                            </div>
+                            <!---time picker --->
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <input type="time" id="time" name="time" required>
+                                <span class="field-error" data-error-for="time"></span>
                             </div>
                             <div class="form-group">
                                 <label for="service">Preferred treatment</label>
                                 <select id="service" name="service">
                                     <option value="">Select a treatment</option>
+                                    <option value="Brace Adjustment">Brace Adjustment</option>
                                     <option value="Teeth Whitening">Teeth Whitening</option>
                                     <option value="Porcelain Veneers">Porcelain Veneers</option>
                                     <option value="Composite Bonding">Composite Bonding</option>
@@ -1784,15 +2158,13 @@
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn-main">Send request</button>
-                            <span class="form-note">We’ll reply by email or phone. Walk-ins also welcome.</span>
+                            <button type="submit" class="btn-main" id="submitBtn">Send request</button>
+                            <span class="form-note">By appointment only — we don’t accommodate walk-ins. Just have a
+                                question? Call or message us anytime, no booking needed.</span>
                         </div>
                     </form>
 
-                    <div class="form-success" id="formSuccess">
-                        <h3>Request sent ✓</h3>
-                        <p>Thank you! We’ll contact you soon to confirm your appointment.</p>
-                    </div>
+                    <div class="form-success" id="formSuccess"></div>
                 </div>
             </div>
         </section>
@@ -1805,9 +2177,8 @@
                 <div>
                     <div class="foot-brand">
                         <div class="brand-mark">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                                <path d="M12 2L4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z" />
-                            </svg>
+                            <img src ="{{ asset('img/logo1.png') }}" alt="Crown Aesthetic Dental Clinic logo"
+                                width="30" height="30">
                         </div>
                         <span>Crown Aesthetic</span>
                     </div>
@@ -1817,6 +2188,7 @@
                     <h4>Explore</h4>
                     <a href="#announcements">Announcements</a>
                     <a href="#about">About</a>
+                    <a href="#meet">Meet the Dentist</a>
                     <a href="#services">Treatments</a>
                     <a href="#voices">Stories</a>
                     <a href="#visit">Visit</a>
@@ -1824,7 +2196,7 @@
                 </div>
                 <div class="foot-col">
                     <h4>Connect</h4>
-                    <a href="tel:+639170000000">(0917) 000 0000</a>
+                    <a href="tel:+639170000000">(0000) 000 0000</a>
                     <a href="https://www.facebook.com/CrownAestheticDental/" target="_blank"
                         rel="noopener">Facebook</a>
                 </div>
@@ -1886,6 +2258,190 @@
                 nav.classList.remove('open');
                 btn.textContent = '☰';
             }));
+        })();
+
+        // ---- Scroll-triggered reveal for the treatment cards ----
+        (function() {
+            const cards = document.querySelectorAll('.services-grid .reveal');
+            if (!cards.length) return;
+            if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                cards.forEach(el => el.classList.add('in-view'));
+                return;
+            }
+            cards.forEach((el, i) => {
+                el.style.animationDelay = (i % 3 * 90) + 'ms'; // stagger by column
+            });
+            const io = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -40px 0px'
+            });
+            cards.forEach(el => io.observe(el));
+        })();
+
+        // ---- Booking form: validation + real AJAX submission to FormSubmit ----
+        // Submits via fetch to FormSubmit's /ajax/ endpoint and reads the JSON
+        // response's "success" field directly, rather than assuming any HTTP
+        // 200 response means the email was actually delivered. This is what
+        // was silently failing before: a plain POST gives no way to tell
+        // whether FormSubmit actually sent the email or just accepted the
+        // request, so a form that "looked" like it worked could still be
+        // dropping every submission (most commonly because the one-time
+        // activation email hasn't been confirmed yet — see the HTML comment
+        // above the <form> tag).
+        (function() {
+            const form = document.getElementById('bookingForm');
+            const endpoint = form ? form.dataset.endpoint : null;
+            const status = document.getElementById('formSuccess');
+            const submitBtn = document.getElementById('submitBtn');
+            if (!form || !endpoint) return;
+
+            function showError(field, msg) {
+                const el = form.querySelector('[data-error-for="' + field + '"]');
+                if (el) el.textContent = msg;
+            }
+
+            function clearErrors() {
+                form.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+            }
+
+            function validate() {
+                clearErrors();
+                let ok = true;
+                const name = form.elements['name'].value.trim();
+                const phone = form.elements['phone'].value.trim();
+                const date = form.elements['date'];
+                const time = form.elements['time'];
+                const email = form.elements['email'].value.trim();
+
+                if (name.length < 2) {
+                    showError('name', 'Please enter your full name.');
+                    ok = false;
+                }
+                if (phone.replace(/[^0-9+]/g, '').length < 7) {
+                    showError('phone', 'Please enter a valid phone number.');
+                    ok = false;
+                }
+                if (date.value === '') {
+                    showError('date', 'Please select a preferred date.');
+                    ok = false;
+                }
+                if (time.value === '') {
+                    showError('time', 'Please select a preferred time.');
+                    ok = false;
+                }
+                if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showError('email', 'Please enter a valid email address.');
+                    ok = false;
+                }
+
+                return ok;
+            }
+
+            function resetButton() {
+                submitBtn.removeAttribute('disabled');
+                submitBtn.textContent = 'Send request';
+            }
+
+            function showStatus(kind, html) {
+                form.style.display = 'none';
+                status.className = 'form-success show' + (kind === 'error' ? ' error' : '');
+                status.innerHTML = html;
+                const retry = status.querySelector('.retry-btn');
+                if (retry) retry.addEventListener('click', () => {
+                    form.style.display = '';
+                    status.className = 'form-success';
+                    status.innerHTML = '';
+                });
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (!validate()) return;
+
+                // Honeypot: a filled hidden field means a bot filled the form.
+                // Pretend success and stop — don't send bots feedback either way.
+                if (form.elements['_honey'].value) {
+                    showStatus('success',
+                        '<h3>Request sent ✓</h3><p>Thank you! We\u2019ll contact you soon to confirm your appointment.</p>'
+                    );
+                    return;
+                }
+
+                submitBtn.setAttribute('disabled', 'true');
+                submitBtn.textContent = 'Sending…';
+
+                const payload = {
+                    name: form.elements['name'].value.trim(),
+                    phone: form.elements['phone'].value.trim(),
+                    email: form.elements['email'].value.trim(),
+                    date: form.elements['date'].value,
+                    time: form.elements['time'].value,
+                    service: form.elements['service'].value,
+                    message: form.elements['message'].value.trim(),
+                    _subject: 'New Appointment Request — Crown Aesthetic',
+                    _template: 'table'
+                };
+
+                try {
+                    const res = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    let data = null;
+                    try {
+                        data = await res.json();
+                    } catch (parseErr) {
+                        data = null;
+                    }
+
+                    // FormSubmit returns { success: "true" | "false", message: "..." }.
+                    // Only treat it as delivered when success is explicitly truthy —
+                    // this is the check that was missing before.
+                    const delivered = res.ok && data && (data.success === true || data.success === 'true');
+
+                    if (delivered) {
+                        showStatus('success',
+                            '<h3>Request sent ✓</h3><p>Thank you! We\u2019ll contact you soon to confirm your appointment.</p>'
+                        );
+                    } else if (data && /activat|confirm/i.test(data.message || '')) {
+                        // The address hasn't clicked the one-time FormSubmit
+                        // activation link yet — the request did not go through.
+                        showStatus('error',
+                            '<h3>We couldn\u2019t send that yet</h3>' +
+                            '<p>Our booking form needs a one-time activation before it can deliver requests. ' +
+                            'Please call us at <a href="tel:+639170000000">(0917) 000 0000</a> or message us on ' +
+                            '<a href="https://www.facebook.com/CrownAestheticDental/" target="_blank" rel="noopener">Facebook</a> ' +
+                            'and we\u2019ll get you booked right away.</p>' +
+                            '<button type="button" class="btn-outline retry-btn">Try again</button>');
+                    } else {
+                        showStatus('error',
+                            '<h3>Something went wrong</h3>' +
+                            '<p>Your request wasn\u2019t sent. Please try again, or reach us directly at ' +
+                            '<a href="tel:+639170000000">(0917) 000 0000</a> or on ' +
+                            '<a href="https://www.facebook.com/CrownAestheticDental/" target="_blank" rel="noopener">Facebook</a>.</p>' +
+                            '<button type="button" class="btn-outline retry-btn">Try again</button>');
+                    }
+                } catch (networkErr) {
+                    showStatus('error',
+                        '<h3>Connection problem</h3>' +
+                        '<p>We couldn\u2019t reach the booking service. Please check your connection and try again, or call ' +
+                        '<a href="tel:+639170000000">(0917) 000 0000</a> directly.</p>' +
+                        '<button type="button" class="btn-outline retry-btn">Try again</button>');
+                } finally {
+                    resetButton();
+                }
+            });
         })();
     </script>
 </body>
